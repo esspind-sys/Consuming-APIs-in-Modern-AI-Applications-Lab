@@ -1,0 +1,7 @@
+What was different about handling the AI API call compared to the Giphy call:
+
+Giphy was simpler to set up and get running. The AI response was much more complex to handle because it didn't come back as a single JSON object. Instead it came as a stream of small pieces that had to be read and assembled as they came in.
+
+What UI considerations the streaming response required:
+
+For the AI, text had to appear gradually, which changed how the app rendered. It re-drew continuously as new pieces arrived instead of once at the end. This resaulted in the app needing more than just two states, since it had to track waiting, generating, and finished. Overall the flow involved more steps than a traditional REST response.
